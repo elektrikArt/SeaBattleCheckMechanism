@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "H_G_obrazniy_morskoy_boy/1.0.0": {
+        "runtime": {
+          "H_G_obrazniy_morskoy_boy.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "H_G_obrazniy_morskoy_boy/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

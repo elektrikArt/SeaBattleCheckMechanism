@@ -1,0 +1,15 @@
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\bin\Debug\net6.0\H_G_obrazniy_morskoy_boy.exe
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\bin\Debug\net6.0\H_G_obrazniy_morskoy_boy.deps.json
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\bin\Debug\net6.0\H_G_obrazniy_morskoy_boy.runtimeconfig.json
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\bin\Debug\net6.0\H_G_obrazniy_morskoy_boy.dll
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\bin\Debug\net6.0\H_G_obrazniy_morskoy_boy.pdb
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\H_G_obrazniy_morskoy_boy.csproj.AssemblyReference.cache
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\H_G_obrazniy_morskoy_boy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\H_G_obrazniy_morskoy_boy.AssemblyInfoInputs.cache
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\H_G_obrazniy_morskoy_boy.AssemblyInfo.cs
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\H_G_obrazniy_morskoy_boy.csproj.CoreCompileInputs.cache
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\H_G_obrazniy_morskoy_boy.dll
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\refint\H_G_obrazniy_morskoy_boy.dll
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\H_G_obrazniy_morskoy_boy.pdb
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\H_G_obrazniy_morskoy_boy.genruntimeconfig.cache
+C:\Users\musli\dev\c#\route256\H_G_obrazniy_morskoy_boy\obj\Debug\net6.0\ref\H_G_obrazniy_morskoy_boy.dll
