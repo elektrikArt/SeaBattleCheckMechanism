@@ -17,7 +17,7 @@ for (int _ = 0; _ < kitsCount; _++)
 
     var ships = new List<Ship>();
     FindShips(ships);
-    if (ships.All(s => IsValid(s)))
+    if (ships.Count > 0 && ships.All(s => IsValid(s)))
     {
         Console.WriteLine("YES");
         Console.WriteLine(ships.Count);
@@ -91,19 +91,27 @@ for (int _ = 0; _ < kitsCount; _++)
     bool IsValid(Ship ship)
     {
         var firstDicsoveredP = ship.First();
+
         var sameLinePs = ship.Where(p => p.Y == firstDicsoveredP.Y);  // horizontal line
-        var lineStartP = sameLinePs.MinBy(p => p.Y);
-        var lineEndP = sameLinePs.MaxBy(p => p.X);
-        if (lineEndP.X - lineStartP.X != sameLinePs.Count())
-            return false;
+        if (sameLinePs.Count() > 0)
+        {
+            var lineStartP = sameLinePs.MinBy(p => p.X);
+            var lineEndP = sameLinePs.MaxBy(p => p.X);
+            if (lineEndP.X - lineStartP.X != sameLinePs.Count() - 1)
+                return false;
+        }
 
         var otherLinePs = ship.Where(p => p.Y != firstDicsoveredP.Y);  // vertical line
-        lineStartP = otherLinePs.MinBy(p => p.Y);
-        lineEndP = otherLinePs.MaxBy(p => p.Y);
-        if (lineEndP.Y - lineStartP.Y != sameLinePs.Count())
-            return false;
+        if (otherLinePs.Count() > 0)
+        {
+            var lineStartP = otherLinePs.MinBy(p => p.Y);
+            var lineEndP = otherLinePs.MaxBy(p => p.Y);
+            if (lineEndP.Y - lineStartP.Y != sameLinePs.Count() - 1)
+                return false;
+        }
 
         return true;
+    }
 }
 
 
