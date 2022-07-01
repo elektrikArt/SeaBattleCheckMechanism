@@ -2,6 +2,8 @@
 
 
 int kitsCount = int.Parse(Console.ReadLine() ?? "_");
+bool _turnIsMade = false;
+string _currDirection = "_";
 
 for (int _ = 0; _ < kitsCount; _++)
 {
@@ -16,20 +18,21 @@ for (int _ = 0; _ < kitsCount; _++)
     }
 
     var ships = new List<Ship>();
-    FindShips(ships);
-    if (ships.Count > 0 && ships.All(s => IsValid(s)))
+    try
     {
+        FindShips();
+        CheckShips();
         Console.WriteLine("YES");
         Console.WriteLine(ships.Count);
     }
-    else
+    catch
     {
         Console.WriteLine("NO");
     }
 
 
 
-    void FindShips(List<Ship> ships)
+    void FindShips()
     {
         for (int y = 0; y < n; y++)
         {
@@ -41,6 +44,8 @@ for (int _ = 0; _ < kitsCount; _++)
                     //Console.WriteLine("New ship found with p.Y: {0}, p.X: {1}", p.Y, p.X);
                     var ship = new Ship();
                     ship.Add(p);
+                    _turnIsMade = false;
+                    _currDirection = "_";
                     DiscoverShip(ship);
                     ships.Add(ship);
                 }
@@ -63,54 +68,66 @@ for (int _ = 0; _ < kitsCount; _++)
         Point seekP;
         //Console.WriteLine("endP.Y: {0}, enpP.X: {1}", endP.Y, endP.X);
 
-        seekP = new Point { Y = endP.Y, X = endP.X - 1 };
+        seekP = new Point { Y = endP.Y, X = endP.X - 1 };  // left
         if (IsDeck(seekP) && ship.Contains(seekP) == false)
         {
+            if (_currDirection != "left")
+            {
+                if (_turnIsMade)
+                    throw new Exception();
+                if (_currDirection != "_")
+                    _turnIsMade = true;
+                _currDirection = "left";
+            }
             ship.Add(seekP);
             DiscoverShip(ship);
         }
-        seekP = new Point { Y = endP.Y - 1, X = endP.X };
+        seekP = new Point { Y = endP.Y - 1, X = endP.X };  // up
         if (IsDeck(seekP) && ship.Contains(seekP) == false)
         {
+            if (_currDirection != "up")
+            {
+                if (_turnIsMade)
+                    throw new Exception();
+                if (_currDirection != "_")
+                    _turnIsMade = true;
+                _currDirection = "up";
+            }
             ship.Add(seekP);
             DiscoverShip(ship);
         }
-        seekP = new Point { Y = endP.Y, X = endP.X + 1 };
+        seekP = new Point { Y = endP.Y, X = endP.X + 1 };  // right
         if (IsDeck(seekP) && ship.Contains(seekP) == false)
         {
+            if (_currDirection != "right")
+            {
+                if (_turnIsMade)
+                    throw new Exception();
+                if (_currDirection != "_")
+                    _turnIsMade = true;
+                _currDirection = "right";
+            }
             ship.Add(seekP);
             DiscoverShip(ship);
         }
-        seekP = new Point { Y = endP.Y + 1, X = endP.X };
+        seekP = new Point { Y = endP.Y + 1, X = endP.X };  // down
         if (IsDeck(seekP) && ship.Contains(seekP) == false)
         {
+            if (_currDirection != "down")
+            {
+                if (_turnIsMade)
+                    throw new Exception();
+                if (_currDirection != "_")
+                    _turnIsMade = true;
+                _currDirection = "down";
+            }
             ship.Add(seekP);
             DiscoverShip(ship);
         }
     }
-    bool IsValid(Ship ship)
+    void CheckShips()
     {
-        var firstDicsoveredP = ship.First();
-
-        var sameLinePs = ship.Where(p => p.Y == firstDicsoveredP.Y);  // horizontal line
-        if (sameLinePs.Count() > 0)
-        {
-            var lineStartP = sameLinePs.MinBy(p => p.X);
-            var lineEndP = sameLinePs.MaxBy(p => p.X);
-            if (lineEndP.X - lineStartP.X != sameLinePs.Count() - 1)
-                return false;
-        }
-
-        var otherLinePs = ship.Where(p => p.Y != firstDicsoveredP.Y);  // vertical line
-        if (otherLinePs.Count() > 0)
-        {
-            var lineStartP = otherLinePs.MinBy(p => p.Y);
-            var lineEndP = otherLinePs.MaxBy(p => p.Y);
-            if (lineEndP.Y - lineStartP.Y != sameLinePs.Count() - 1)
-                return false;
-        }
-
-        return true;
+        
     }
 }
 
