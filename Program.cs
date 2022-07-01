@@ -90,18 +90,20 @@ for (int _ = 0; _ < kitsCount; _++)
     }
     bool IsValid(Ship ship)
     {
-        //May be inadvertency here
-        var first = ship[0];
-        var cuttedShip = ship.Where(p => p.X != first.X && p.X != first.Y);
-        first = ship[0];
-        cuttedShip = cuttedShip.Where(p => p.X != first.X && p.X != first.Y);
-        if (cuttedShip.Count() > 0)
-        {
-            Console.WriteLine("you have {0}", cuttedShip.Count());
+        var firstDicsoveredP = ship.First();
+        var sameLinePs = ship.Where(p => p.Y == firstDicsoveredP.Y);  // horizontal line
+        var lineStartP = sameLinePs.MinBy(p => p.Y);
+        var lineEndP = sameLinePs.MaxBy(p => p.X);
+        if (lineEndP.X - lineStartP.X != sameLinePs.Count())
             return false;
-        }
+
+        var otherLinePs = ship.Where(p => p.Y != firstDicsoveredP.Y);  // vertical line
+        lineStartP = otherLinePs.MinBy(p => p.Y);
+        lineEndP = otherLinePs.MaxBy(p => p.Y);
+        if (lineEndP.Y - lineStartP.Y != sameLinePs.Count())
+            return false;
+
         return true;
-    }
 }
 
 
